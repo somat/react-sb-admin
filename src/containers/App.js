@@ -2,10 +2,25 @@ import React, {Component} from 'react'
 import Header from './Header'
 
 class App extends Component {
+
+  constructor() {
+    super()
+    this.state = {
+      navbarCollapsed: (window.innerWidth <= 500 ? true : false)
+    }
+    this.handleNavbar = this.handleNavbar.bind(this)
+  }
+
+  handleNavbar() {
+    this.setState({navbarCollapsed: !this.state.navbarCollapsed})
+  }
+
   render() {
     return(
       <div id="wrapper">
-        <Header/>
+        <Header
+          handleNavbar={this.handleNavbar}
+          navbarCollapsed={this.state.navbarCollapsed}/>
 
         <div id="page-wrapper">
           <div className="container-fluid">

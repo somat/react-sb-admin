@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
 class Sidebar extends Component {
 
   render() {
     return (
       <div className="navbar-default sidebar" style={{ marginLeft: '-20px' }} role="navigation">
-        <div className="sidebar-nav navbar-collapse collapse">
+        <div className={"sidebar-nav navbar-collapse "+(this.props.navbarCollapsed ? "collapse" : "")}>
           <ul className="nav in" id="side-menu">
 
             <li>
@@ -28,6 +29,10 @@ class Sidebar extends Component {
       </div>
     );
   }
+}
+
+Sidebar.propTypes = {
+  navbarCollapsed: PropTypes.bool.isRequired
 }
 
 export default Sidebar
